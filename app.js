@@ -12,12 +12,24 @@ const app = express();
 
 // Rotas
 
+
+app.use(express.static('public'))
+
+
 app.get('/', (req, res) => {
-    res.send("Bem Vindo ao Server!")
+    res.sendFile(__dirname + "/views/home.html")
+})
+
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + "/views/home.html")
 })
 
 app.get('/manutencao', (req, res) => {
     res.sendFile(__dirname + "/views/manutencao.html")
+})
+
+app.get('/blog', (req, res) => {
+    res.sendFile(__dirname + "/views/blog.html")
 })
 
 // Usando o método que definirá em que porta o servidor ouvirá(receber as req e responde-las)
